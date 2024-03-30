@@ -59,7 +59,7 @@ function serial2JSON($setting, $table, $db) {
 		$db->update("UPDATE $table SET value='$converted' WHERE keyID='LinkGroup_Settings'");
 	}	
 }
-# Convert the follwoing to JSON format using above function
+# Convert the following to JSON format using above function
 serial2JSON('Location_Info','settings',$classDB);
 serial2JSON('LinkGroup_Settings','settings',$classDB);
 
