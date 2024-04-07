@@ -748,9 +748,10 @@ class Modules {
 			} 
 		}
 
+		$return_html = '';
+
 		if (!empty($modulesActive)) {
 			// Render Setting Menus for Active Modules
-			$return_html = '';
 			foreach ($modulesActive as $mod_id => $mod_name) {
 				$curSettingsURL = 'modules.php?settings=' . $mod_id;
 				$curNavID = 'nav_' . $modules[$mod_id]['svxlinkName'];
