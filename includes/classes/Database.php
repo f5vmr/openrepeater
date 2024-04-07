@@ -10,10 +10,6 @@ class Database {
 	private $memcachedHost = 'localhost';
 	private $memcachedPort = 11211;
 
-	// Temporary override for Docker Development
-	public function __construct() {
-		if (gethostname() == 'docker_orp_php') { $this->memcachedHost = 'docker_orp_memcached'; } // If running on Docker Container Change host for Memcached container host.
-	}
 
 	###############################################
 	# Run SQL Statements
