@@ -371,6 +371,7 @@ while :; do
 			elif [ "$2" == "4x_v2" ]; then drivers_ics_4x_v2
 			elif [ "$2" == "8x_v2" ]; then drivers_ics_8x_v2
 			else echo "INVALID OPTION"; echo "USAGE: orp_helper drivers <HW_TYPE (see script for options)>"
+                        fi
 			exit;;
 			
         -h|-\?|--help|*)   # Display general help/info.
