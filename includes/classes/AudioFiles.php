@@ -62,7 +62,7 @@ class AudioFiles {
 		}
 
 		// Remove hidden files
-		$fileList = array_filter($fileList, create_function('$a','return ($a[0]!=".");'));
+		$fileList = array_filter($fileList, function($a) { return ($a[0]!="."); } );
 	
 		// Sort and reindex array
 		natsort($fileList);

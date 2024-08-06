@@ -14,10 +14,38 @@
 # NOTE: NO NEED TO PREFIX COMMANDS WITH SUDO AS THIS SCRIPT IS INTENDED TO BE RUN AS ROOT USING SUDO COMMAND
 
 #outside support scripts
-source board_drivers_loader
+#source board_drivers_loader
 ###############################################################################
 # DEFINE FUNCTIONS
 ###############################################################################
+
+
+### DOCKER FUNCTIONS FOR CONTAINERIZED SETUP ###
+
+function docker_svxlink_start {
+	docker exec SVXLink systemctl start svxlink
+
+	#svxlink_devices_permissions
+	#systemctl start svxlink
+	#svxlink_status
+
+	echo "FAKE COMMAND 1 - to be replace with docker pass thru command."
+}
+
+function docker_svxlink_stop {
+	echo "FAKE COMMAND 2 - to be replace with docker pass thru command."
+}
+
+function docker_svxlink_restart {
+	echo "FAKE COMMAND 3 - to be replace with docker pass thru command."
+}
+
+function docker_svxlink_status {
+	#systemctl is-active svxlink
+	echo "FAKE COMMAND 4 - to be replace with docker pass thru command."
+}
+
+
 
 ### SVXLINK FUNCTIONS ###
 function display_help {
@@ -29,7 +57,7 @@ function display_help {
 	echo ""
 	echo "USAGE: orp_helper [service] [option]"
 	echo "[service] options:"
-	echo "svxlink|system|info|www|audio|set_mixer|alsa|network|pty|gps|"
+	echo "svxlink|system|info|www|audio|set_mixer|alsa|network|pty|gps|docker"
 	echo "drivers"
 }
 
@@ -364,6 +392,16 @@ while :; do
 			else echo "INVALID OPTION"; echo "USAGE: orp_helper gps (read)"
 			fi
 			exit;;
+
+        docker)
+			if [ "$2" == "svxlink_start" ]; then docker_svxlink_start
+			elif [ "$2" == "svxlink_stop" ]; then docker_svxlink_stop
+			elif [ "$2" == "svxlink_restart" ]; then docker_svxlink_restart
+			elif [ "$2" == "svxlink_status" ]; then docker_svxlink_status
+			else echo "INVALID OPTION"; echo "USAGE: orp_helper docker (svxlink_start|svxlink_stop|svxlink_restart|svxlink_status)"
+			fi
+			exit;;
+
 			
 		drivers)
 			if [ "$2" == "1x_v1" ]; then drivers_ics_1x_v1
@@ -371,6 +409,7 @@ while :; do
 			elif [ "$2" == "4x_v2" ]; then drivers_ics_4x_v2
 			elif [ "$2" == "8x_v2" ]; then drivers_ics_8x_v2
 			else echo "INVALID OPTION"; echo "USAGE: orp_helper drivers <HW_TYPE (see script for options)>"
+                        fi
 			exit;;
 			
         -h|-\?|--help|*)   # Display general help/info.

@@ -748,6 +748,8 @@ class Modules {
 			} 
 		}
 
+		$return_html = '';
+
 		if (!empty($modulesActive)) {
 			// Render Setting Menus for Active Modules
 			foreach ($modulesActive as $mod_id => $mod_name) {

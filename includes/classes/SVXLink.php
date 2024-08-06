@@ -143,7 +143,7 @@ class SVXLink {
 
 			case 'HiDraw':
 				$hidDev = trim( $this->portsArray[$curPort]['hidrawDev'] );
-				if ($this->portsArray[$curPort]['hidrawRX_cos_invert'] == true) {
+				if ( isset($this->portsArray[$curPort]['hidrawRX_cos_invert']) ) {
 					$hid_pin = '!' . $this->portsArray[$curPort]['hidrawRX_cos']; // Inverted Logic
 				} else {
 					$hid_pin = $this->portsArray[$curPort]['hidrawRX_cos']; // Normal Logic
@@ -156,7 +156,7 @@ class SVXLink {
 
 			case 'Serial':
 				$serialDev = trim( $this->portsArray[$curPort]['serialDev'] );
-				if ($this->portsArray[$curPort]['serialRX_cos_invert'] == true) {
+				if ( isset($this->portsArray[$curPort]['serialRX_cos_invert']) ) {
 					$serial_pin = '!' . $this->portsArray[$curPort]['serialRX_cos']; // Inverted Logic
 				} else {
 					$serial_pin = $this->portsArray[$curPort]['serialRX_cos']; // Normal Logic
@@ -223,7 +223,7 @@ class SVXLink {
 
 		case 'HiDraw':
 			$hidDev = trim( $this->portsArray[$curPort]['hidrawDev'] );
-			if ($this->portsArray[$curPort]['hidrawTX_ptt_invert'] == true) {
+			if ( isset($this->portsArray[$curPort]['hidrawTX_ptt_invert']) ) {
 				$hid_pin = '!' . $this->portsArray[$curPort]['hidrawTX_ptt']; // Inverted Logic
 			} else {
 				$hid_pin = $this->portsArray[$curPort]['hidrawTX_ptt']; // Normal Logic
@@ -235,7 +235,7 @@ class SVXLink {
 
 		case 'Serial':
 			$serialDev = trim( $this->portsArray[$curPort]['serialDev'] );
-			if ($this->portsArray[$curPort]['serialTX_ptt_invert'] == true) {
+			if ( isset($this->portsArray[$curPort]['serialTX_ptt_invert']) ) {
 				$serial_pin = '!' . $this->portsArray[$curPort]['serialTX_ptt']; // Inverted Logic
 			} else {
 				$serial_pin = $this->portsArray[$curPort]['serialTX_ptt']; // Normal Logic
